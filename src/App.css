@@ -49,3 +49,35 @@
   max-width: 12rem;
   margin: 2rem;
 }
+
+.card{
+  text-align: center;
+  width: 10rem;
+  margin: 2rem;
+}
+
+.container-poke{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-text{
+  border-top: 1px solid rgba(0, 0, 0, .4);
+  padding: 1rem;
+}
+
+.card{
+  transition: transform .3s;
+  border: 1px solid rgba(0, 0, 0, .3);
+}
+
+.card:hover{
+  transform: scale(1.1);
+}
+.card-body{
+  padding: 0;
+}
+
+

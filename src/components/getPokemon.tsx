@@ -9,12 +9,13 @@ const GetPokemon = () => {
     const Obtener = async () => {
         try {
             axios
-                .get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=151')
-                .then(response => {
-                    const json = response.data;
-                    setData(json.data);
-                    console.log(json.data);
-                });
+            .get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=151')
+            .then(response => {
+                const json = response.data;
+                setData(json.results); 
+                console.log(json.results);
+            });
+        
         } catch (error) {
             console.error(error);
         }
@@ -36,25 +37,17 @@ const GetPokemon = () => {
     }, [data]);
 
     return (
-        <div>
-            <h5>Consumiendo datos de un API-Rest</h5>
-            <p>En este ejemplo se muestra como consumir datos de un API-Rest</p>
-            <table>
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                </tr>
-                </thead>
-                <tbody>
-                {data.map((item, index) => {
-                    return(<tr key={item['name']}>
-                        <td>{item['name']}</td>
-                    </tr>);
-                })}
-                </tbody>
-            </table>
+        <div className='container-poke'>
+            {data.map((item, index) => {
+                return(
+                    <div className="card">
+                        <img src={`https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${item['name']}.png`} className="card-img-top" alt="..."/>
+                        <div className="card-body">
+                            <p className="card-text">{item['name']}</p>
+                        </div>
+                    </div>
+                );
+            })}
         </div>
     );
 }
