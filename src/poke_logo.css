@@ -1,0 +1,6 @@
+.logo-Pokemon{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    top: 0;
+}

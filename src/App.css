@@ -1,11 +1,4 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -14,19 +7,17 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  border-bottom: 2px solid #4671f1;
 }
 
-.App-link {
-  color: #61dafb;
-}
+
 
 @keyframes App-logo-spin {
   from {
@@ -35,4 +26,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.logo-Pokemon{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  top: 0;
+  max-width: 20rem;
+}
+
+.container-box{
+  display: flex;
+  flex-flow: wrap;
+  margin: 2rem;
+  justify-content: end;
+  align-items: center;
+}
+
+.box_selection{
+  max-width: 12rem;
+  margin: 2rem;
 }
