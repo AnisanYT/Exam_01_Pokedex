@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import ComponentBox from './components/box';
@@ -6,19 +6,28 @@ import App from './App';
 import GetPokemon from './components/getPokemon';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-    <ComponentBox />
-    <GetPokemon />
+const AppWrapper: React.FC = () => {
+    const [selectedGeneration, setSelectedGeneration] = useState<number | null>(null);
 
-  </React.StrictMode>
-);
+    const handleGenerationSelect = (generation: number) => {
+        setSelectedGeneration(generation);
+    };
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+    return (
+        <React.StrictMode>
+            <App />
+            <ComponentBox onGenerationSelect={handleGenerationSelect} />
+            <GetPokemon selectedGeneration={selectedGeneration} />
+        </React.StrictMode>
+    );
+};
+const rootElement = document.getElementById('root');
+
+if (rootElement) {
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(<AppWrapper />);
+  } else {
+    console.error("Elemento 'root' no encontrado en el DOM.");
+  }
+
 reportWebVitals();
